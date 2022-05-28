@@ -1,0 +1,21 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <view class="reg-part">
+    <view class="info-group">
+    <van-cell-group>
+      <van-field size="large" model:value="{{usrname}}" label="用户姓名"  placeholder="请输入用户姓名" />
+      <van-field size="large" model:value="{{usrid}}" label="学生证号"  placeholder="请输入学生证号" />
+      <van-field size="large" model:value="{{passwd}}" label="用户密码"  placeholder="请输入用户密码" password="true" />
+      <van-field size="large" model:value="{{sex}}" label="用户性别"  placeholder="请输入性别"></van-field>
+      <van-field size="large" model:value="{{xueyuan}}" label="所在学院"  placeholder="请输入所在学院"></van-field>
+      <van-field size="large" model:value="{{rxnf}}" label="入学年份"  placeholder="例如：2019"></van-field>
+      <van-field size="large" model:value="{{class}}" label="所在班级"  placeholder="例如：19直招计科3班"></van-field>
+      <van-field size="large" model:value="{{dorm}}" label="所在寝室"  placeholder="例如：新世纪06-204"></van-field>
+    </van-cell-group>
+  </view>
+  <view class="reg-button">
+    <van-button color="#3b87dd" type="primary" size="large">立即注册</van-button>
+  </view>
+  </view>
+  
+</view>

@@ -1,0 +1,40 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  
+  <view class="login-part">
+  <view class="img-center">
+  <view class="img2">
+    <image src="../../img/xiaohui.jpeg"></image>
+  </view>
+    
+  </view>
+    
+    <view class="login-info">
+      <van-cell-group class="info-group">
+        <van-field model:value="{{usrname}}" label="用户姓名" left-icon="user-o" placeholder="请输入用户姓名" />
+        <van-field model:value="{{usrid}}" label="证件号码" left-icon="idcard" placeholder="请输入学号或教工号" />
+        <van-field model:value="{{passwd}}" label="用户密码" left-icon="eye-o" placeholder="请输入用户密码" password="true" />
+        
+        
+
+
+      </van-cell-group>
+      <view class="ra-grp">
+          <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+            <van-radio name="stu">学生</van-radio>
+            <van-radio name="teacher">教师</van-radio>
+            <van-radio name="manager">管理员</van-radio>
+          </van-radio-group>
+        </view>
+    </view>
+
+    <view class="my-button">
+      <view class="login-button ">
+        <van-button  type="info" color="#3b87dd">立即登录</van-button>
+      </view>
+      <view class="reg-button">
+        <van-button  color="#3b87dd" plain type="info" bind:click="regButton">学生注册</van-button>
+      </view>
+    </view>
+  </view>
+</view>

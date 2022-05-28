@@ -1,0 +1,53 @@
+/* pages/login/login.wxss */
+page{
+  background-color:#116ec0 ;
+}
+
+.login-part{
+  width: 75%;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  margin-top: 60rpx;
+  align-items: center;
+  padding: 40rpx;
+  border-radius: 10rpx;
+  height: auto;
+}
+.login-info{
+  height: auto;
+}
+
+.my-button{
+  margin-left: 25rpx;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+
+.reg-button{
+  margin-left: 40rpx;
+  
+  float: left;
+}
+.login-button{
+  float: left;
+  
+}
+
+.img-center{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+image{
+
+  width: 70%;
+}
+.ra-grp{
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+
+}

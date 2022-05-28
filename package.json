@@ -1,0 +1,24 @@
+{
+  "name": "shuConv",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cyria7/sdjkb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cyria7/sdjkb/issues"
+  },
+  "homepage": "https://github.com/Cyria7/sdjkb#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.3",
+    "miniprogram-sm-crypto": "^0.3.8"
+  }
+}
