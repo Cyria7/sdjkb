@@ -1,3 +1,5 @@
+/* pages/teStu/teStu.wxss */
+/* pages/unreport/unreport.wxss */
 /* pages/teIndex/teIndex.wxss */
 .title{
   font-size: 40rpx;
@@ -37,4 +39,29 @@
   margin-top: 10rpx;
   margin-bottom: 10rpx;
 }
+.search-btn{
+  font-size: larger;
+}
+.search-part{
+  padding:20rpx;
+  box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
+  margin-top: 30rpx;
+}
+.reg-button{
+  padding: 20rpx;
+  margin-top: 20rpx;
+  box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
+}
 
+.btn-stu{
+  overflow: hidden;
+}
+
+.close-btn{
+  float: left;
+}
+.man-btn{
+  margin-left: 20rpx;
+  float: left;
+  color: rgb(245, 69, 69);
+}

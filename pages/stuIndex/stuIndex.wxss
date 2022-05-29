@@ -1,1 +1,21 @@
 /* pages/stuIndex/stuIndex.wxss */
+.today-upload{
+  margin:40rpx;
+}
+.his{
+  font-size: 35rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-weight: bold;
+}
+.his-title{
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
+  
+}
+
+.his-list{
+  /* border:2rpx solid rgb(124, 119, 119); */
+  box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
+  padding:10rpx;
+}

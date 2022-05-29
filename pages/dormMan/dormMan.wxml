@@ -1,0 +1,16 @@
+<!--pages/dormMan/dormMan.wxml-->
+<view class="wrap">
+  <view class="container">
+    <view class="title">
+      
+      <view class="title-time">今日：<text class="day">{{curday}}</text> </view>
+      <view class="title-text">本楼<text style="color: red;">未上报</text>人员名单如下：</view>
+    </view>
+    <view class="unrepo">
+      <view wx:for="{{unreport}}" class="unrepo-card">
+        <view class="repo-name">姓名：<text class="day">{{item.pname}}</text> </view>
+        <view class="repo-dorm">住址：{{item.dorm}} </view>
+      </view>
+    </view>
+  </view>
+</view>

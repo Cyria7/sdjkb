@@ -1,40 +1,48 @@
-// pages/stuIndex/stuIndex.js
+// pages/dormMan/dormMan.js
+var util=require('../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active:'home',
-    dormMan:true,
-    history:[
+    curday:'',
+
+    unreport:[
       {
-        jcrq:'2022-05-01 00:00:00',
-        result:'阴性',
+        pid:'1',
+        pname:'钱凯文',
+        dorm:'新世纪06-204-2',
       }
     ],
   },
-  todayUp:function(){
-    wx.navigateTo({
-      url: '../upload/upload',
-    })
-  },
-  todayNot:function(){
-    wx.navigateTo({
-      url: '../dormMan/dormMan',
-    })
-  },
 
-  onChange(event){
-    this.setData(
-      {active:event.detail}
-    );
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var that =this;
+    that.getNowTime()
+  },
 
+  getNowTime:function(){
+    var now = new Date();
+    var year=now.getFullYear();
+    var month=now.getMonth()+1;
+    var day=now.getDate();
+    if(month < 10) {
+      month = '0' + month;
+    };
+    if(day < 10) {
+      day = '0' + day;
+    };
+    var formatday=month+'月'+day+'日';
+    console.log('当前日期：',formatday)
+    this.setData({
+      curday:formatday
+    })
   },
 
   /**

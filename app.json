@@ -1,11 +1,21 @@
 {
   "pages": [
+    "pages/stuIndex/stuIndex",
+
+    "pages/teIndex/teIndex",
+    "pages/unreport/unreport",
+    "pages/teStu/teStu",
+
+
+    "pages/upload/upload",  
+    "pages/dormMan/dormMan",
+    
     "pages/login/login",
     "pages/register/register",
     "pages/index/index",
-    "pages/stuIndex/stuIndex",
-    "pages/teIndex/teIndex",
     
+    
+
 
     "pages/logs/logs" 
   ],
@@ -80,5 +90,22 @@
     "van-goods-action": "@vant/weapp/goods-action/index",
     "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
     "van-goods-action-button": "@vant/weapp/goods-action-button/index"
+  },
+  "tabBar": {
+    "selectedColor": "#116ec0",
+    "list": [{
+      "pagePath": "pages/teIndex/teIndex",
+      "text": "主页",
+      "iconPath": "img/index-o.png",
+      "selectedIconPath": "img/index-b.png"
+    },
+    {
+      "pagePath": "pages/teStu/teStu",
+      "text": "学生管理",
+      "iconPath": "img/stu-o.png",
+      "selectedIconPath": "img/stu-b.png"
+    }
+  ]
   }
+  
 }

@@ -1,0 +1,24 @@
+<!--pages/upload/upload.wxml-->
+<view class="container">
+<view class="things">
+  <view class="upload-title">
+  · 请上传抗原图片
+  </view>
+  <view class="upload-pic">
+    <van-uploader preview-size="400rpx" file-list="upload-pic" max-count="1" deletable="{{true}}"/>
+  </view>
+  <view class="result">
+  <view class="res-title">
+    检测结果：
+  </view>
+  <van-radio-group  value="{{result}}" bind:change="onChange" direction="horizontal">
+    <van-radio name="yin">阴性</van-radio>
+    <van-radio name="yang">阳性</van-radio>
+  </van-radio-group>
+  </view>
+  <view class="res-button">
+    <van-button size="large" block color="#116ec0">确认提交</van-button>
+  </view>
+</view>
+
+</view>

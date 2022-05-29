@@ -30,11 +30,11 @@
 
     <view class="my-button">
       <view class="login-button ">
-        <van-button  type="info" color="#3b87dd">立即登录</van-button>
+        <van-button  type="info" color="#3b87dd" block>立即登录</van-button>
       </view>
-      <view class="reg-button">
+      <!-- <view class="reg-button">
         <van-button  color="#3b87dd" plain type="info" bind:click="regButton">学生注册</van-button>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

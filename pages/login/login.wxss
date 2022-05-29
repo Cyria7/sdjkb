@@ -18,19 +18,20 @@ page{
 }
 
 .my-button{
-  margin-left: 25rpx;
+  /* margin-left: 25rpx; */
   margin-top: 30rpx;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  /* overflow: hidden;
+  text-align: center; */
 }
 
-.reg-button{
-  margin-left: 40rpx;
-  
-  float: left;
-}
+
 .login-button{
-  float: left;
-  
+  width: 90%;
+  margin:auto
 }
 
 .img-center{
@@ -43,7 +44,6 @@ page{
 }
 
 image{
-
   width: 70%;
 }
 .ra-grp{

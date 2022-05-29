@@ -9,9 +9,11 @@ Page({
     stuid:"",
     passwd:"",
     dorm:"",
+    building:"",
     sex:"男",
     class:"",
     xueyuan:"",
-    rxnf:""
+    rxnf:"",
+    phone:"",
   },  
 })

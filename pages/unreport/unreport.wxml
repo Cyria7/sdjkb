@@ -1,28 +1,18 @@
 <!--pages/teIndex/teIndex.wxml-->
 <view class="wrap">
   <view class="container">
-    <view class="title">
-      <view class="title-name">教师 <text class="day">{{teachername}}</text> 您好！</view>
+    <view class="title"> 
       <view class="title-time">今日：<text class="day">{{curday}}</text> </view>
-      <view class="title-button-group">
-        <view class="button1">
-          <van-button type="primary" block size="large" color="#1274ca" bind:click="unReport">查看未上报人员名单</van-button>
-        </view>
-      </view>
-      
-      <view class="title-text"><text style="color: red;">已上报</text>人员名单如下：</view>
+      <view class="title-text"><text style="color: red;">未上报</text>人员名单如下：</view>
     </view>
-    
     <view class="unrepo">
-      <view wx:for="{{report}}" class="unrepo-card">
+      <view wx:for="{{unreport}}" class="unrepo-card">
         <view>
           <van-row>
             <van-col span="20">
               <view class="repo-name">学生姓名：<text class="day">{{item.pname}}</text> </view>
-              <view class="repo-dorm">上传时间：{{item.retime}} </view>
-              <view>自述结果：<text wx:if="{{item.jcjg}}" class="resu">阳性</text>
-                <text wx:else style="color:#1274ca ;">阴性</text>
-              </view>
+              <view>所在寝室：{{item.dorm}}</view>
+              <view>宿舍楼长：{{item.dormMan}}</view>
             </van-col>
             <van-col span="4">
               <view class="img-part" wx:if="{{!item.isshown}}" data-index="{{item.id}}" bindtap="isShow">
@@ -35,14 +25,8 @@
         <view wx:if="{{item.isshown}}" class="pic" bind:click="isShow(item)">
           <view>学生学号：{{item.pidcard}}</view>
           <view>学生班级：{{item.class}}</view>
-          <view>检测类型：{{item.jcfs}} </view>
-          <view>所在寝室：{{item.dorm}}</view>
-
-          <view class="pic-part1">
-            <van-image width="500rpx" height="500rpx" src="https://img.yzcdn.cn/vant/cat.jpeg"></van-image>
-          </view>
-
-          <view>
+          
+          <view style="margin-top: 10rpx;">
             <van-button type="primary" color="#1274ca" data-index="{{item.id}}" bindtap="isShow">收起</van-button>
           </view>
 

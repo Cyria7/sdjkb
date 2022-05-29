@@ -6,29 +6,19 @@ Page({
    */
   data: {
     active:0,
-    tabbar:[{
-      idx:0,
-      url:'/pages/teIndex/teIndex'
-    },
-    {
-      idx:1,
-      url:'/pages/teStu/teStu'
-    }
-  
-  ],
+
     curday:'',
     teachername:'钱凯文',
-    report:[
+    unreport:[
       {
         id:'0',
         pname:'钱凯文',
         pidcard:'19120219',
-        retime:'2022-05-19 09:38',
-        jcfs:'鼻腔拭子',
-        jcjg:true,
+        dormMan:'张云帆',
+
         dorm:'新世纪06-204-2',
         isshown:false,
-        imgsrc:'D:\\shuConv\\img\\cat.jpeg',
+
         class:'19计科直招3班'
       },
       {
@@ -36,11 +26,10 @@ Page({
         pname:'刘雨绮',
         pidcard:'19120244',
         retime:'2022-05-19 09:38',
-        jcfs:'鼻腔拭子',
-        jcjg:false,
+        dormMan:'刘雨绮',
         dorm:'新世纪40-304-2',
         isshown:false,
-        imgsrc:'D:\\shuConv\\img\\cat.jpeg',
+
         class:'19计科直招3班'
       }
     ],
@@ -49,19 +38,16 @@ Page({
     console.log(event.detail);
     this.setData({
       active:event.detail
-    });
-    var cur = this.data.tabbar[event.detail].url;
-    wx.navigateTo({
-      url: cur,
-    });
-
-  },
-
-  unReport(){
-    wx.navigateTo({
-      url: '../unreport/unreport',
     })
+    // var that=this
+    // console.log(that.active)
   },
+
+  // unReport(){
+  //   wx.navigateTo({
+  //     url: '../unreport/unreport',
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -89,8 +75,8 @@ Page({
   isShow:function(e){
     var idx=e.currentTarget.dataset.index;
     // console.log(this.data.report[idx].pname)
-    var rev = !this.data.report[idx].isshown;
-    var upd="report["+idx+"].isshown";
+    var rev = !this.data.unreport[idx].isshown;
+    var upd="unreport["+idx+"].isshown";
     var that=this;
     that.setData({
       [upd]:rev

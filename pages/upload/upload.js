@@ -1,35 +1,19 @@
-// pages/stuIndex/stuIndex.js
+// pages/upload/upload.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active:'home',
-    dormMan:true,
-    history:[
-      {
-        jcrq:'2022-05-01 00:00:00',
-        result:'阴性',
-      }
-    ],
+    upload_pic:[],
+    result:"yin",
   },
-  todayUp:function(){
-    wx.navigateTo({
-      url: '../upload/upload',
-    })
-  },
-  todayNot:function(){
-    wx.navigateTo({
-      url: '../dormMan/dormMan',
-    })
+  onChange(event) {
+    this.setData({
+      radio: event.detail,
+    });
   },
 
-  onChange(event){
-    this.setData(
-      {active:event.detail}
-    );
-  },
   /**
    * 生命周期函数--监听页面加载
    */

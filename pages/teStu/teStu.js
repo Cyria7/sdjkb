@@ -5,42 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
+    teachername:'钱凯文',
     active:0,
     tabbar:[{
-      idx:0,
-      url:'/pages/teIndex/teIndex'
+        idx:0,
+        url:'/pages/teIndex/teIndex'
+      },
+      {
+        idx:1,
+        url:'/pages/teStu/teStu'
+      }
+    ],
+    query_stuname:'',
+    query_class:'',
+    query_dorm:'',
+    query_bud:'',
+    query:{
+      stuname:'',
+      class:'',
+      dorm:'',
+      building:'',
     },
-    {
-      idx:1,
-      url:'/pages/teStu/teStu'
-    }
-  
-  ],
     curday:'',
     teachername:'钱凯文',
-    report:[
+    student:[
       {
         id:'0',
         pname:'钱凯文',
         pidcard:'19120219',
-        retime:'2022-05-19 09:38',
-        jcfs:'鼻腔拭子',
-        jcjg:true,
-        dorm:'新世纪06-204-2',
+        dormMan:'张云帆',
+        phone:'17321122258',
+        dorm:'新世纪06-204',
         isshown:false,
-        imgsrc:'D:\\shuConv\\img\\cat.jpeg',
+        isMan:false,
         class:'19计科直招3班'
       },
       {
         id:'1',
-        pname:'刘雨绮',
-        pidcard:'19120244',
-        retime:'2022-05-19 09:38',
-        jcfs:'鼻腔拭子',
-        jcjg:false,
-        dorm:'新世纪40-304-2',
+        pname:'张云帆',
+        pidcard:'19120159',
+        dormMan:'张云帆',
+        phone:'17321122258',
+        dorm:'新世纪06-204',
         isshown:false,
-        imgsrc:'D:\\shuConv\\img\\cat.jpeg',
+        isMan:true,
         class:'19计科直招3班'
       }
     ],
@@ -55,6 +63,11 @@ Page({
       url: cur,
     });
 
+  },
+  regButton:function(){
+    wx.navigateTo({
+      url: '../register/register',
+    })
   },
 
   unReport(){
@@ -89,8 +102,8 @@ Page({
   isShow:function(e){
     var idx=e.currentTarget.dataset.index;
     // console.log(this.data.report[idx].pname)
-    var rev = !this.data.report[idx].isshown;
-    var upd="report["+idx+"].isshown";
+    var rev = !this.data.student[idx].isshown;
+    var upd="student["+idx+"].isshown";
     var that=this;
     that.setData({
       [upd]:rev
