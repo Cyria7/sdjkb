@@ -1,29 +1,26 @@
 {
   "pages": [
-    "pages/stuIndex/stuIndex",
-
     "pages/teIndex/teIndex",
+    "pages/stuIndex/stuIndex",
+    "pages/login/login",
+    
     "pages/unreport/unreport",
     "pages/teStu/teStu",
 
-
+    
     "pages/upload/upload",  
     "pages/dormMan/dormMan",
     
-    "pages/login/login",
+    
     "pages/register/register",
-    "pages/index/index",
-    
-    
-
-
-    "pages/logs/logs" 
+    "pages/index/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#116ec0",
     "navigationBarTitleText": "上海大学疫情上报系统",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {

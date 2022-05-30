@@ -1,4 +1,5 @@
 // pages/teIndex/teIndex.js
+var app=getApp()
 Page({
 
   /**
@@ -7,25 +8,17 @@ Page({
   data: {
     teachername:'钱凯文',
     active:0,
-    tabbar:[{
-        idx:0,
-        url:'/pages/teIndex/teIndex'
-      },
-      {
-        idx:1,
-        url:'/pages/teStu/teStu'
-      }
-    ],
+    tid:'',
     query_stuname:'',
     query_class:'',
     query_dorm:'',
     query_bud:'',
-    query:{
-      stuname:'',
-      class:'',
-      dorm:'',
-      building:'',
-    },
+    // query:{
+    //   stuname:'',
+    //   class:'',
+    //   dorm:'',
+    //   building:'',
+    // },
     curday:'',
     teachername:'钱凯文',
     student:[
@@ -35,7 +28,8 @@ Page({
         pidcard:'19120219',
         dormMan:'张云帆',
         phone:'17321122258',
-        dorm:'新世纪06-204',
+        building:'新世纪06',
+        dorm:'204',
         isshown:false,
         isMan:false,
         class:'19计科直招3班'
@@ -46,7 +40,8 @@ Page({
         pidcard:'19120159',
         dormMan:'张云帆',
         phone:'17321122258',
-        dorm:'新世纪06-204',
+        building:'新世纪06',
+        dorm:'204',
         isshown:false,
         isMan:true,
         class:'19计科直招3班'
@@ -81,6 +76,22 @@ Page({
   onLoad(options) {
     var that =this;
     that.getNowTime()
+    that.setData({
+      teachername:app.globalData.usrname,
+      tid:app.globalData.tid
+    })
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          student:res.data
+        })
+      }
+    })
   },
   getNowTime:function(){
     var now = new Date();
@@ -109,6 +120,158 @@ Page({
       [upd]:rev
     })
     
+  },
+  DeleteStu:function(e){
+    var that=this;
+    wx.showModal({
+      title:'提示',
+      content:'请确定是否删除该学生！',
+      success:function(res){
+        if(res.confirm){
+          console.log(e.target.dataset.sid),
+          wx.request({
+            url: 'url',
+            data:{
+              sid:e.target.dataset.sid,
+            },
+            method:'POST',
+            success:function(res){
+              if(res.data['status']==true){
+                wx.showModal({
+                  title:'提示',
+                  content:'删除学生成功'
+                })
+                that.Query();
+              }
+            }
+          })
+        }        
+      }
+    })
+  },
+
+  Judge:function(stuname,qclass,building,dorm){   // 判断检索栏是否为空，为空return false
+    if(stuname==""&&qclass==""&&building==""&&dorm==""){
+      return false
+    }
+    return true
+  },
+
+  Query:function(){
+    var stuname=this.data.query_stuname;
+    var qclass=this.data.query_class;
+    var building=this.data.query_bud;
+    var dorm=this.data.query_dorm;
+    var that=this;
+    if(that.Judge(stuname,qclass,building,dorm)==true){
+      wx.request({
+        url: 'url',
+        data:{
+          sname:stuname,
+          sclass:qclass,
+          building:building,
+          room:dorm,
+        },
+        method:'POST',
+        success:function(res){
+          that.setData({
+            student:res.data
+          })
+        }
+      })
+    }
+    else{
+      that.SearchAll();
+    }
+    
+  },
+
+  Setlouzhang:function(e){
+    var sid=e.target.dataset.sid;
+    var building=e.target.dataset.building;
+    wx.showModal({
+      title:'提示',
+      content:'请确定是否将该学生设为楼长！',
+      success:function(res){
+        if(res.confirm){
+          wx.request({
+            url: 'url',
+            data:{
+              sid:sid,
+              building:building
+            },
+            method:'POST',
+            success:function(res){
+              if(res.data[status]==1){
+                wx.showModal({
+                  title:'提示',
+                  content:'成功设为楼长！'
+                })
+              }
+              else{
+                wx.showModal({
+                  title:'提示',
+                  content:'学生所在楼栋已有楼长！'
+                })
+              }
+              that.Query();
+            }
+          })
+        }
+      }
+    })
+  },
+
+  UnSetlouzhang:function(e){
+    var sid=e.target.dataset.sid;
+    var building=e.target.dataset.building;
+    var that=this
+    wx.showModal({
+      title:'提示',
+      content:'确认取消该同学楼长职务',
+      success:function(res){
+        if(res.confirm){
+          wx.request({
+            url: 'url',
+            data:{
+              sid:sid,
+              building:building,
+            },
+            method:'POST',
+            success:function(res){
+              if(res.data[status]==1){
+                wx.showModal({
+                  title:'提示',
+                  content:'成功取消该同学为楼长！'
+                })
+              }
+              else{
+                wx.showModal({
+                  title:'提示',
+                  content:'取消失败！'
+                })
+              }
+              that.Query();
+            }
+          })
+        }
+      }
+    })
+  },
+
+  SearchAll:function(){  // 全部人员查找
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          student:res.data
+        })
+      }
+    })
   },
 
   /**
@@ -143,7 +306,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          student:res.data
+        })
+      }
+    })
   },
 
   /**

@@ -42,18 +42,18 @@
 
         <view wx:if="{{item.isshown}}" class="pic" bind:click="isShow(item)">
           <view>联系方式：{{item.phone}}</view>
-          <view>所在寝室：{{item.dorm}}</view>
+          <view>所在寝室：{{item.building}}-{{item.dorm}}</view>
           <view>宿舍楼长：{{item.dormMan}}</view>          
           
           
           <view style="margin-top: 10rpx;" class="btn-stu">
           <view class="close-btn"><van-button type="primary" color="#1274ca" data-index="{{item.id}}" bindtap="isShow">收起</van-button></view>
-          <view class="man-btn" wx:if="{{!item.isMan}}"><van-button type="primary" plain color="#1274ca" data-index="{{item.id}}" bindtap="isShow">设为楼长</van-button></view>
+          <view class="man-btn" wx:if="{{!item.isMan}}"><van-button type="primary" plain color="#1274ca" data-sid="{{item.pidcard}}" data-building="{{item.building}}" bind:click="Setlouzhang">设为楼长</van-button></view>
           <view class="man-btn" wx:else>
-            <van-button type="warning" plain>取消楼长</van-button>
+            <van-button type="warning" plain data-sid="{{item.pidcard}}" data-building="{{item.building}}" bind:click="UnSetlouzhang">取消楼长</van-button>
           </view>
           <view class="man-btn">
-            <van-button type="warning" color="rgb(245, 69, 69)">删除学生</van-button>
+            <van-button type="warning" color="rgb(245, 69, 69)" data-sid="{{item.pidcard}}" bind:click="DeleteStu">删除学生</van-button>
           </view>
             
           </view>

@@ -16,7 +16,7 @@
     </van-cell-group>
   </view>
   <view class="reg-button">
-    <van-button color="#3b87dd" type="primary" size="large">立即添加</van-button>
+    <van-button color="#3b87dd" type="primary" size="large" bind:click="regBtn">立即添加</van-button>
   </view>
   </view>
   

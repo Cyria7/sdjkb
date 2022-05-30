@@ -1,6 +1,9 @@
 /* pages/stuIndex/stuIndex.wxss */
 .today-upload{
-  margin:40rpx;
+  padding:10rpx;
+  margin: 20rpx;
+  box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
+  border-radius: 8rpx;
 }
 .his{
   font-size: 35rpx;
@@ -10,8 +13,16 @@
 }
 .his-title{
   margin-bottom: 20rpx;
-  font-size: 40rpx;
   
+  font-size: 40rpx;
+  font-weight: bold;  
+}
+.his-title1{
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  font-size: 40rpx;
+  font-weight: bold;  
 }
 
 .his-list{

@@ -14,6 +14,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    uid:'',
+    usrname:'钱凯文',
   }
 })

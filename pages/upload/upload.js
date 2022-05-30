@@ -1,4 +1,5 @@
 // pages/upload/upload.js
+var app=getApp()
 Page({
 
   /**
@@ -6,12 +7,22 @@ Page({
    */
   data: {
     upload_pic:[],
+    usrid:'',
     result:"yin",
   },
   onChange(event) {
     this.setData({
       radio: event.detail,
     });
+  },
+
+  handleSub:function(){
+    var that=this;
+    var usrid=app.globalData.uid;
+    that.setData({
+      usrid:usrid
+    })
+    
   },
 
   /**

@@ -3,6 +3,7 @@
   <view class="notice" wx:if="{{dormMan}}">
     <van-notice-bar left-icon="volume-o" mode="link" text="请楼长查收今日防疫通知人员名单" bind:click="todayNot"/>
   </view>
+  <view class="his-title1">学生 <text style="color: #116ec0;">{{usrname}}</text> 您好！</view>
   <view class="today-upload">
     <van-button type="primary" size="large" block color="#116ec0" bind:click="todayUp">+本人今日防疫信息上报</van-button>
   </view>

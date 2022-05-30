@@ -1,5 +1,6 @@
 // pages/dormMan/dormMan.js
 var util=require('../../utils/util.js')
+var app=getApp()
 
 Page({
 
@@ -8,7 +9,7 @@ Page({
    */
   data: {
     curday:'',
-
+    building:'',
     unreport:[
       {
         pid:'1',
@@ -24,7 +25,26 @@ Page({
    */
   onLoad(options) {
     var that =this;
+    
     that.getNowTime()
+    that.setData({
+      building:app.globalData.building
+    })
+
+    var building=this.data.building
+    wx.request({
+      url: 'url',
+      data:{
+        building:building
+      },
+      method:'POST',
+      success:function(res){
+        console.log(res)
+        that.setData({
+          unreport:res.data[0]
+        })
+      }
+    })
   },
 
   getNowTime:function(){
@@ -77,7 +97,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    var building=this.data.building
+    wx.request({
+      url: 'url',
+      data:{
+        building:building
+      },
+      method:'POST',
+      success:function(res){
+        console.log(res)
+        that.setData({
+          unreport:res.data[0]
+        })
+      }
+    })
   },
 
   /**

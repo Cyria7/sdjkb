@@ -1,4 +1,6 @@
 // pages/teIndex/teIndex.js
+var app=getApp()
+
 Page({
 
   /**
@@ -6,18 +8,9 @@ Page({
    */
   data: {
     active:0,
-    tabbar:[{
-      idx:0,
-      url:'/pages/teIndex/teIndex'
-    },
-    {
-      idx:1,
-      url:'/pages/teStu/teStu'
-    }
-  
-  ],
     curday:'',
     teachername:'钱凯文',
+    tid:'',
     report:[
       {
         id:'0',
@@ -28,7 +21,7 @@ Page({
         jcjg:true,
         dorm:'新世纪06-204-2',
         isshown:false,
-        imgsrc:'D:\\shuConv\\img\\cat.jpeg',
+        imgsrc:'',
         class:'19计科直招3班'
       },
       {
@@ -40,7 +33,7 @@ Page({
         jcjg:false,
         dorm:'新世纪40-304-2',
         isshown:false,
-        imgsrc:'D:\\shuConv\\img\\cat.jpeg',
+        imgsrc:'',
         class:'19计科直招3班'
       }
     ],
@@ -66,8 +59,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var that =this;
-    that.getNowTime()
+    var that=this;
+    that.getNowTime();
+    this.setData({
+      tid:app.globalData.uid,
+      teachername:app.globalData.usrname
+    });
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+        time:this.data.curday
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          report:res.data
+        })
+      }
+      
+    })
+
   },
   getNowTime:function(){
     var now = new Date();
@@ -130,7 +142,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+        time:this.data.curday
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          report:res.data
+        })
+      }
+      
+    })
   },
 
   /**

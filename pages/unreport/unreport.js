@@ -1,4 +1,6 @@
 // pages/teIndex/teIndex.js
+var app=getApp()
+
 Page({
 
   /**
@@ -6,7 +8,7 @@ Page({
    */
   data: {
     active:0,
-
+    tid:'',
     curday:'',
     teachername:'钱凯文',
     unreport:[
@@ -43,17 +45,30 @@ Page({
     // console.log(that.active)
   },
 
-  // unReport(){
-  //   wx.navigateTo({
-  //     url: '../unreport/unreport',
-  //   })
-  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     var that =this;
     that.getNowTime()
+    that.setData({
+      tid:app.globalData.uid,
+      teachername:app.globalData.usrname
+    })
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+        time:this.data.curday
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          unreport:res.data
+        })
+      }
+      
+    })
   },
   getNowTime:function(){
     var now = new Date();
@@ -116,7 +131,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    wx.request({
+      url: 'url',
+      data:{
+        tid:this.data.tid,
+        time:this.data.curday
+      },
+      method:'POST',
+      success:function(res){
+        that.setData({
+          unreport:res.data
+        })
+      }
+      
+    })
   },
 
   /**

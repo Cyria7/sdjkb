@@ -20,17 +20,17 @@
 
       </van-cell-group>
       <view class="ra-grp">
-          <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
-            <van-radio name="stu">学生</van-radio>
-            <van-radio name="teacher">教师</van-radio>
-            <van-radio name="manager">管理员</van-radio>
+          <van-radio-group value="{{ idf }}" bind:change="onChange" direction="horizontal">
+            <van-radio name="student" style="margin-left: 10rpx;">学生</van-radio>
+            <van-radio name="teacher" style="margin-left: 100rpx;">教师</van-radio>
+            <!-- <van-radio name="manager">管理员</van-radio> -->
           </van-radio-group>
         </view>
     </view>
 
     <view class="my-button">
       <view class="login-button ">
-        <van-button  type="info" color="#3b87dd" block>立即登录</van-button>
+        <van-button  type="info" color="#3b87dd" block bind:click="handleLogin">立即登录</van-button>
       </view>
       <!-- <view class="reg-button">
         <van-button  color="#3b87dd" plain type="info" bind:click="regButton">学生注册</van-button>
