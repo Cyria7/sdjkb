@@ -1,17 +1,14 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/teIndex/teIndex",
     "pages/stuIndex/stuIndex",
-    "pages/login/login",
+    
     
     "pages/unreport/unreport",
     "pages/teStu/teStu",
-
-    
     "pages/upload/upload",  
     "pages/dormMan/dormMan",
-    
-    
     "pages/register/register",
     "pages/index/index"
   ],

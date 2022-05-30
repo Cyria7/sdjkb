@@ -57,7 +57,7 @@ Page({
     var usrname=this.data.usrname;
     var uid=this.data.usrid;
     var passwd=this.data.passwd;
-    var idf=this.idf;
+    var idf=this.data.idf;
     var that=this;
     console.log(uid,passwd);
     if(that.judge(uid,usrname,passwd,idf)==false)
@@ -79,8 +79,10 @@ Page({
               content: '尚未存在数据库中',
             })
           }
-          else if (res.data[status]==1){
+          else if (res.data['status']==1){
             if(idf=='student'){
+              app.globalData.uid = uid;
+              app.globalData.usrname = usrname;
               wx.redirectTo({
                 url: '/pages/stuIndex/stuIndex',
               })

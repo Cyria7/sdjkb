@@ -20,7 +20,7 @@
 
       </van-cell-group>
       <view class="ra-grp">
-          <van-radio-group value="{{ idf }}" bind:change="onChange" direction="horizontal">
+          <van-radio-group model:value="{{ idf }}" bind:change="onChange" direction="horizontal">
             <van-radio name="student" style="margin-left: 10rpx;">学生</van-radio>
             <van-radio name="teacher" style="margin-left: 100rpx;">教师</van-radio>
             <!-- <van-radio name="manager">管理员</van-radio> -->

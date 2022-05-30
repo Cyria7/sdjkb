@@ -15,7 +15,7 @@
           <van-field size="large" model:value="{{query_dorm}}" label="宿舍查询" placeholder="例如：新世纪06-204"></van-field>  
         </van-cell-group>
         <view class="search-btn">
-          <van-button type="primary" block color="#1274ca" bind:click="">立即查询</van-button>
+          <van-button type="primary" block color="#1274ca" bind:click="Query">立即查询</van-button>
         </view>
         
       </view>
@@ -48,7 +48,7 @@
           
           <view style="margin-top: 10rpx;" class="btn-stu">
           <view class="close-btn"><van-button type="primary" color="#1274ca" data-index="{{item.id}}" bindtap="isShow">收起</van-button></view>
-          <view class="man-btn" wx:if="{{!item.isMan}}"><van-button type="primary" plain color="#1274ca" data-sid="{{item.pidcard}}" data-building="{{item.building}}" bind:click="Setlouzhang">设为楼长</van-button></view>
+          <view class="man-btn" wx:if="{{!item.isMan}}"><van-button type="primary" plain color="#1274ca" data-pname="{{item.pname}}" data-sid="{{item.pidcard}}" data-building="{{item.building}}" bind:click="Setlouzhang">设为楼长</van-button></view>
           <view class="man-btn" wx:else>
             <van-button type="warning" plain data-sid="{{item.pidcard}}" data-building="{{item.building}}" bind:click="UnSetlouzhang">取消楼长</van-button>
           </view>

@@ -4,7 +4,7 @@
     <view class="info-group">
     <van-cell-group>
       <van-field size="large" model:value="{{usrname}}" label="学生姓名"  placeholder="请输入学生姓名" />
-      <van-field size="large" model:value="{{usrid}}" label="学生证号"  placeholder="请输入学生证号" />
+      <van-field size="large" model:value="{{stuid}}" label="学生证号"  placeholder="请输入学生证号" />
       <van-field size="large" model:value="{{passwd}}" label="用户密码"  placeholder="请输入用户密码" password="true" />
       <van-field size="large" model:value="{{sex}}" label="用户性别"  placeholder="请输入性别"></van-field>
       <van-field size="large" model:value="{{phone}}" label="联系方式"  placeholder="请输入手机号"></van-field>

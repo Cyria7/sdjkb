@@ -9,6 +9,8 @@ Page({
     upload_pic:[],
     usrid:'',
     result:"yin",
+    curday:'',
+    curtime:''
   },
   onChange(event) {
     this.setData({
@@ -19,9 +21,7 @@ Page({
   handleSub:function(){
     var that=this;
     var usrid=app.globalData.uid;
-    that.setData({
-      usrid:usrid
-    })
+    
     
   },
 
@@ -29,9 +29,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    // var that =this;
+    // that.getNowTime()
   },
-
+  getNowTime:function(){
+    var now = new Date();
+    var year=now.getFullYear();
+    var month=now.getMonth()+1;
+    var day=now.getDate();
+    if(month < 10) {
+      month = '0' + month;
+    };
+    if(day < 10) {
+      day = '0' + day;
+    };
+    var formatday=month+'月'+day+'日';
+    
+    console.log('当前日期：',formatday)
+    this.setData({
+      curday:formatday
+    })
+    
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var s = now.getSeconds();
+    var curtime=h+':'+m;
+    this.setData({
+      curtime:curtime
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -16,6 +16,6 @@ App({
   globalData: {
     userInfo: null,
     uid:'',
-    usrname:'钱凯文',
+    usrname:'',
   }
 })

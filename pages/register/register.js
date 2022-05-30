@@ -14,14 +14,15 @@ Page({
     sex:"男",
     class:"",
     xueyuan:"",
+
     rxnf:"",
     phone:"",
   },
   regBtn:function(){
-    var tid=app.globalData.tid
+    var tid=app.globalData.uid
     var that=this
     wx.request({
-      url: 'url',
+      url: 'http://127.0.0.1:8000/Reg/',
       data:{
         sid:this.data.stuid,
         sname:this.data.usrname,
@@ -31,7 +32,7 @@ Page({
         sex:this.data.sex,
         sclass:this.data.class,
         xueyuan:this.data.xueyuan,
-        year:this.data.year,
+        year:this.data.rxnf,
         lxfs:this.data.phone,
         islouzhang:false,
         tid:tid,

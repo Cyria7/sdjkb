@@ -23,7 +23,7 @@ Page({
     teachername:'钱凯文',
     student:[
       {
-        id:'0',
+        id:0,
         pname:'钱凯文',
         pidcard:'19120219',
         dormMan:'张云帆',
@@ -35,7 +35,7 @@ Page({
         class:'19计科直招3班'
       },
       {
-        id:'1',
+        id:1,
         pname:'张云帆',
         pidcard:'19120159',
         dormMan:'张云帆',
@@ -78,20 +78,21 @@ Page({
     that.getNowTime()
     that.setData({
       teachername:app.globalData.usrname,
-      tid:app.globalData.tid
+      tid:app.globalData.uid
     })
-    wx.request({
-      url: 'url',
-      data:{
-        tid:this.data.tid,
-      },
-      method:'POST',
-      success:function(res){
-        that.setData({
-          student:res.data
-        })
-      }
-    })
+    that.SearchAll();
+    // wx.request({
+    //   url: 'url',
+    //   data:{
+    //     tid:this.data.tid,
+    //   },
+    //   method:'POST',
+    //   success:function(res){
+    //     that.setData({
+    //       student:res.data
+    //     })
+    //   }
+    // })
   },
   getNowTime:function(){
     var now = new Date();
@@ -165,8 +166,9 @@ Page({
     var that=this;
     if(that.Judge(stuname,qclass,building,dorm)==true){
       wx.request({
-        url: 'url',
+        url: 'http://127.0.0.1:8000/QueryStu/',
         data:{
+          tid:app.globalData.uid,
           sname:stuname,
           sclass:qclass,
           building:building,
@@ -174,9 +176,19 @@ Page({
         },
         method:'POST',
         success:function(res){
-          that.setData({
-            student:res.data
-          })
+          if(res.data['status']==0)
+          {
+            wx.showModal({
+              title:'提示',
+              content:'没有符合要求的学生！'
+            })
+            that.SearchAll();
+          }
+          else{
+            that.setData({
+              student:res.data
+            })
+          }
         }
       })
     }
@@ -188,25 +200,29 @@ Page({
 
   Setlouzhang:function(e){
     var sid=e.target.dataset.sid;
+    var pname=e.target.dataset.pname;
     var building=e.target.dataset.building;
+    var that=this
     wx.showModal({
       title:'提示',
       content:'请确定是否将该学生设为楼长！',
       success:function(res){
         if(res.confirm){
           wx.request({
-            url: 'url',
+            url: 'http://127.0.0.1:8000/Setlz',
             data:{
               sid:sid,
+              pname:pname,
               building:building
             },
             method:'POST',
             success:function(res){
-              if(res.data[status]==1){
+              if(res.data['status']==1){
                 wx.showModal({
                   title:'提示',
                   content:'成功设为楼长！'
                 })
+                that.Query();
               }
               else{
                 wx.showModal({
@@ -214,7 +230,7 @@ Page({
                   content:'学生所在楼栋已有楼长！'
                 })
               }
-              that.Query();
+              
             }
           })
         }
@@ -232,18 +248,19 @@ Page({
       success:function(res){
         if(res.confirm){
           wx.request({
-            url: 'url',
+            url: 'http://127.0.0.1:8000/UnSetlz',
             data:{
               sid:sid,
               building:building,
             },
             method:'POST',
             success:function(res){
-              if(res.data[status]==1){
+              if(res.data['status']==1){
                 wx.showModal({
                   title:'提示',
                   content:'成功取消该同学为楼长！'
                 })
+                that.Query();
               }
               else{
                 wx.showModal({
@@ -251,7 +268,7 @@ Page({
                   content:'取消失败！'
                 })
               }
-              that.Query();
+              
             }
           })
         }
@@ -260,10 +277,11 @@ Page({
   },
 
   SearchAll:function(){  // 全部人员查找
+    var that=this
     wx.request({
-      url: 'url',
+      url: 'http://127.0.0.1:8000/SearchAll/',
       data:{
-        tid:this.data.tid,
+        tid:app.globalData.uid,
       },
       method:'POST',
       success:function(res){
@@ -306,18 +324,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-    wx.request({
-      url: 'url',
-      data:{
-        tid:this.data.tid,
-      },
-      method:'POST',
-      success:function(res){
-        that.setData({
-          student:res.data
-        })
-      }
-    })
+    this.SearchAll();
+    // wx.request({
+    //   url: 'url',
+    //   data:{
+    //     tid:this.data.tid,
+    //   },
+    //   method:'POST',
+    //   success:function(res){
+    //     that.setData({
+    //       student:res.data
+    //     })
+    //   }
+    // })
   },
 
   /**
