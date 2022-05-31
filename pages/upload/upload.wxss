@@ -22,6 +22,15 @@ page{
 .upload-pic{
   /* margin-left: 50rpx; */
   margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  height: 400rpx;
+  width: 400rpx;
+  background-color: rgba(255, 255, 255, 0.801);
+  text-align: center;
+  /* vertical-align: middle; */
+}
+.icon-wrap{
+  padding-top: 150rpx;
 
 }
 
@@ -37,4 +46,8 @@ page{
   margin-right: 50rpx;
   /* margin-bottom: 50rpx; */
   margin-top: 15rpx;
+}
+image{
+  height: 400rpx;
+  width: 400rpx;
 }

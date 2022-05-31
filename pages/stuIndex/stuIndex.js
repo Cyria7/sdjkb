@@ -48,7 +48,7 @@ Page({
     var usrid=this.data.usrid;
     console.log("onload here")
     wx.request({
-      url: '',
+      url: 'http://127.0.0.1:8000/StuHis/',
       data:{
         uid:usrid,
       },
@@ -102,14 +102,15 @@ Page({
     var usrid=this.data.usrid;
     console.log("pull down refresh")
     wx.request({
-      url: '',
+      url: 'http://127.0.0.1:8000/StuHis/',
       data:{
         uid:usrid,
       },
       method:'POST',
       success:function(res){
         that.setData({
-          history:res.data[1],
+          building:res.data[1]['building'],
+          history:res.data[2],
           dormMan:res.data[0]['islouzhang']
         })
       }

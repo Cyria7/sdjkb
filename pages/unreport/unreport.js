@@ -10,6 +10,7 @@ Page({
     active:0,
     tid:'',
     curday:'',
+    qday:'',
     teachername:'钱凯文',
     unreport:[
       {
@@ -56,10 +57,10 @@ Page({
       teachername:app.globalData.usrname
     })
     wx.request({
-      url: 'url',
+      url: 'http://127.0.0.1:8000/TeUnRe/',
       data:{
         tid:this.data.tid,
-        time:this.data.curday
+        time:this.data.qday
       },
       method:'POST',
       success:function(res){
@@ -82,9 +83,11 @@ Page({
       day = '0' + day;
     };
     var formatday=month+'月'+day+'日';
+    var qday=year+'-'+month+'-'+day;
     console.log('当前日期：',formatday)
     this.setData({
-      curday:formatday
+      curday:formatday,
+      qday:qday
     })
   },
   isShow:function(e){
@@ -131,11 +134,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
+    var that=this
     wx.request({
-      url: 'url',
+      url: 'http://127.0.0.1:8000/TeUnRe/',
       data:{
         tid:this.data.tid,
-        time:this.data.curday
+        time:this.data.qday
       },
       method:'POST',
       success:function(res){

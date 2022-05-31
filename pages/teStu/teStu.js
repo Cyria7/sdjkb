@@ -185,6 +185,7 @@ Page({
             that.SearchAll();
           }
           else{
+            console.log(res.data)
             that.setData({
               student:res.data
             })

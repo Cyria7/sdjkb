@@ -11,7 +11,10 @@
   <view class="his-title">历史上传记录:</view>
     <view wx:for="{{history}}" class="his-list">
       <view class="time">上传时间：{{item.jcrq}}</view>
-      <view class="resu">检测结果：{{item.result}}</view>
+      <view class="resu">检测结果：<text wx:if="{{item.result}}">阳性</text>
+        <text wx:else>阴性</text>
+      <!-- {{item.result}} -->
+      </view>
     </view>
   </view>
   <!-- <van-tabbar active="{{active}}" bind:change="onChange">

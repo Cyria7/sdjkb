@@ -17,5 +17,6 @@ App({
     userInfo: null,
     uid:'',
     usrname:'',
+    path:''
   }
 })
