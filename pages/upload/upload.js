@@ -22,7 +22,7 @@ Page({
 
   handleSub:function(){
     console.log('hihihi');
-    var that=this;
+    let that=this;
     var usrid=app.globalData.uid;
     that.getNowTime();
     console.log(that.data.file_path);
@@ -31,7 +31,7 @@ Page({
     })
     if (this.data.result=='yang'){
       that.setData({
-        re1:false
+        re1:true
       })
     };
     wx.uploadFile({
@@ -46,17 +46,18 @@ Page({
         time:this.data.curtime,
         // result:this.data.result,
       },
-      success(res){
+      success:(res)=>{
         var jsonobj=JSON.parse(res.data)
         console.log(jsonobj)
         var path=jsonobj[0]['path']
-        console.log(path)
-        this.setData({
-          file_path:str(path)
+        // console.log(path)
+        that.setData({
+          file_path:path
         })
       }
 
     }),
+
     console.log(this.data.file_path)
     wx.request({
       url: 'http://127.0.0.1:8000/UploadD/',

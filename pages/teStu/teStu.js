@@ -131,18 +131,24 @@ Page({
         if(res.confirm){
           console.log(e.target.dataset.sid),
           wx.request({
-            url: 'url',
+            url: 'http://127.0.0.1:8000/DeleStu/',
             data:{
               sid:e.target.dataset.sid,
             },
             method:'POST',
             success:function(res){
-              if(res.data['status']==true){
+              if(res.data['status']==1){
                 wx.showModal({
                   title:'提示',
                   content:'删除学生成功'
                 })
                 that.Query();
+              }
+              else{
+                wx.showModal({
+                  title:'提示',
+                  content:'该学生是楼长！需要取消楼长职务后才可删除！',
+                })
               }
             }
           })
@@ -286,6 +292,7 @@ Page({
       },
       method:'POST',
       success:function(res){
+        console.log(res)
         that.setData({
           student:res.data
         })
