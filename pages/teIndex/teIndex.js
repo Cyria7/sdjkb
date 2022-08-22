@@ -46,6 +46,11 @@ Page({
       url: '../unreport/unreport',
     })
   },
+  appendNotice(){
+    wx.navigateTo({
+      url: '../AppendNotice/AppendNotice',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -9,6 +9,7 @@
           <van-button type="primary" block size="large" color="#1274ca" bind:click="unReport">查看未上报人员名单</van-button>
         </view>
       </view>
+
       
       <view class="title-text"><text style="color: red;">已上报</text>人员名单如下：</view>
     </view>

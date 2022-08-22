@@ -12,28 +12,18 @@ Page({
     curday:'',
     qday:'',
     teachername:'钱凯文',
-    unreport:[
+    hesuan:[
       {
         id:'0',
-        pname:'钱凯文',
-        pidcard:'19120219',
-        dormMan:'张云帆',
-
-        dorm:'新世纪06-204-2',
-        isshown:false,
-
-        class:'19计科直招3班'
+        hesuan_date:'2022-05-02',
+        hesuan_time:'早上8：00开始',
+        info:'新世纪大学生村1-20号楼从前往后做，21-41号楼从后往前做',
       },
       {
         id:'1',
-        pname:'刘雨绮',
-        pidcard:'19120244',
-        retime:'2022-05-19 09:38',
-        dormMan:'刘雨绮',
-        dorm:'新世纪40-304-2',
-        isshown:false,
-
-        class:'19计科直招3班'
+        hesuan_date:'2022-05-01',
+        hesuan_time:'早上8：00开始',
+        info:'新世纪大学生村1-20号楼从前往后做，21-41号楼从后往前做',
       }
     ],
   },
@@ -44,6 +34,11 @@ Page({
     })
     // var that=this
     // console.log(that.active)
+  },
+  notice(){
+    wx.navigateTo({
+      url: '../Notice/Notice',
+    })
   },
 
   /**

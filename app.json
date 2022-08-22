@@ -3,14 +3,16 @@
     "pages/login/login",
     "pages/teIndex/teIndex",
     "pages/stuIndex/stuIndex",
-    
-    
     "pages/unreport/unreport",
     "pages/teStu/teStu",
-    "pages/upload/upload",  
+    "pages/upload/upload",
     "pages/dormMan/dormMan",
     "pages/register/register",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/AppendNotice/AppendNotice",
+    "pages/Notice/Notice",
+    "pages/QueueProgress",
+    "pages/QueueProgress/QueueProgress"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -87,19 +89,25 @@
   },
   "tabBar": {
     "selectedColor": "#116ec0",
-    "list": [{
-      "pagePath": "pages/teIndex/teIndex",
-      "text": "主页",
-      "iconPath": "img/index-o.png",
-      "selectedIconPath": "img/index-b.png"
-    },
-    {
-      "pagePath": "pages/teStu/teStu",
-      "text": "学生管理",
-      "iconPath": "img/stu-o.png",
-      "selectedIconPath": "img/stu-b.png"
-    }
-  ]
+    "list": [
+      {
+        "pagePath": "pages/teIndex/teIndex",
+        "text": "主页",
+        "iconPath": "img/index-o.png",
+        "selectedIconPath": "img/index-b.png"
+      },
+      {
+        "pagePath": "pages/AppendNotice/AppendNotice",
+        "text": "全体核酸",
+        "iconPath": "img/hesuan.png",
+        "selectedIconPath": "img/hesuan-b.png"
+      },
+      {
+        "pagePath": "pages/teStu/teStu",
+        "text": "学生管理",
+        "iconPath": "img/stu-o.png",
+        "selectedIconPath": "img/stu-b.png"
+      }
+    ]
   }
-  
 }

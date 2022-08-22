@@ -1,7 +1,7 @@
 {
-  "name": "shuConv",
+  "name": "shuconv",
   "version": "1.0.0",
-  "description": "",
+  "description": "选择 构建NPM 执行：npm install",
   "main": ".eslintrc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

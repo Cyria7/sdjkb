@@ -104,6 +104,8 @@ class SelectAllStu(APIView): # 老师筛查所有管理的学生
 
 class QueryStu(APIView):
     def post(selfs, request, *args, **kwargs):
+        # ttid=request.data['tid']
+        # queryset=Student.objects.filter(tid=ttid)
         stuinfo=Student.objects.all()
         myfilter={}
         for field in Student._meta.fields:  # 获取该类内所有字段对象
@@ -313,7 +315,8 @@ def UpLoadImg(request):
             # date=request.FILES.get('photo').name
         )
         src1=new_img.imgsrc
-        new_img.save() 
+        new_img.save()
+    
     res=[]
     cur={}
     cur['path']='http://127.0.0.1:8000/media/'+str(src1)

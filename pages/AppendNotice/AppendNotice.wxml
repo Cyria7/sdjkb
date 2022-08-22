@@ -1,0 +1,42 @@
+<!--pages/teIndex/teIndex.wxml-->
+<view class="wrap">
+  <view class="container">
+    <view class="title"> 
+      <view class="title-time">今日：<text class="day">{{curday}}</text> </view>
+      <view class="title-text"><text style="color: red;"></text>已发布的核酸通知如下：</view>
+    </view>
+    <view class="title-button-group">
+        <view class="button1">
+          <van-button type="primary" block size="large" color="#1274ca" bind:click="notice">发布核酸通知</van-button>
+        </view>
+      </view>
+    <view class="unrepo">
+      <view wx:for="{{hesuan}}" class="unrepo-card">
+        <view>
+          <van-row>
+            <van-col span="20">
+              <view class="repo-name">核酸日期：<text class="day">{{item.hesuan_date}}</text> </view>
+              <view>核酸时间：{{item.hesuan_time}}</view>
+              <view>详细内容：{{item.info}}</view>
+            </van-col>
+            <van-col span="4">
+              <view class="img-part" wx:if="{{!item.isshown}}" data-index="{{item.id}}" bindtap="isShow">
+                <van-icon name="wap-nav" size="50rpx" />
+              </view>
+            </van-col>
+          </van-row>
+        </view>
+
+       
+
+      </view>
+    </view>
+
+    <!-- <view class="tarbar-bot">
+      <van-tabbar active="{{ active }}" active-color="#1274ca" inactive-color="" bind:change="onChange">
+        <van-tabbar-item icon="home-o">主页</van-tabbar-item>
+        <van-tabbar-item icon="friends-o">学生</van-tabbar-item>
+      </van-tabbar>
+    </view> -->
+  </view>
+</view>

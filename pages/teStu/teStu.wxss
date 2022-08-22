@@ -38,19 +38,23 @@
 .button1{
   margin-top: 10rpx;
   margin-bottom: 10rpx;
+  font-weight: bold;
 }
 .search-btn{
   font-size: larger;
+  font-weight: bold;
 }
 .search-part{
   padding:20rpx;
   box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
   margin-top: 30rpx;
+
 }
 .reg-button{
   padding: 20rpx;
   margin-top: 20rpx;
   box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
+  font-weight: bold;
 }
 
 .btn-stu{

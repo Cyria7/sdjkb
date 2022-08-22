@@ -1,0 +1,163 @@
+/* pages/stuIndex/stuIndex.wxss */
+@font-face {
+  font-family: "iconfont"; /* Project id 3590579 */
+  src: url('//at.alicdn.com/t/c/font_3590579_xv8j9s0s9d.woff2?t=1660587690173') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3590579_xv8j9s0s9d.woff?t=1660587690173') format('woff'),
+       url('//at.alicdn.com/t/c/font_3590579_xv8j9s0s9d.ttf?t=1660587690173') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weiwancheng:before {
+  content: "\e668";
+  font-size: 50rpx;
+  color:rgb(255, 58, 58);
+}
+
+.icon-a-iconhesuanjiancedian:before {
+  content: "\e60d";
+  font-size: 80rpx;
+  color:white;
+}
+
+.icon-24gf-ellipsis:before {
+  content: "\eb10";
+  font-size: 50rpx;
+  color:orange;
+}
+
+.icon-yiwancheng:before {
+  content: "\e613";
+  font-size: 50rpx;
+  color:green;
+}
+
+
+
+
+
+
+.today-upload{
+  padding:10rpx;
+  margin: 20rpx;
+  box-shadow: 5rpx 5rpx 10rpx 5rpx #ccc;
+  border-radius: 8rpx;
+}
+.his{
+  font-size: 35rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-weight: bold;
+}
+.his-title{
+  margin-bottom: 20rpx;
+  color:#fff;
+  margin-left: 20rpx;
+  margin-top: 50rpx;
+  margin-bottom: 10rpx;
+  font-size: 40rpx;
+  font-size: 40rpx;
+  font-weight: bold;  
+}
+.his-title2{
+  margin-bottom: 20rpx;
+  color:#000000;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
+  font-size: 40rpx;
+  font-weight: bold;  
+}
+
+.his-list{
+  /* border:2rpx solid rgb(124, 119, 119); */
+  background-color: #116ec0;
+  color:#ffffff;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 50rpx;
+  padding:10rpx;
+  border-radius: 20rpx;
+}
+
+
+.inhis-list{
+  /* border:2rpx solid rgb(124, 119, 119); */
+  box-shadow: 5rpx 5rpx 5rpx 5rpx #ccc;
+  padding:10rpx;
+  background-color: #fff;
+  color:#000000;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 20rpx;
+}
+.inhis-list2{
+  /* border:2rpx solid rgb(124, 119, 119); */
+  box-shadow: 5rpx 5rpx 5rpx 5rpx #ccc;
+  padding:10rpx;
+  background-color: #fff;
+  color:#000000;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  border-radius: 20rpx;
+}
+.area {
+  display: relative;
+  flex-direction: column;
+  align-items: center;
+  height: 300rpx;
+}
+.area::after{
+  content: '';
+  width: 120%;
+  height: 300rpx;
+  position: absolute;
+  z-index: -1;
+  left: -10%;
+  top: 0;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(160deg,#116ec0, #116ec0);
+}
+.bg{
+  border-radius: 40rpx;
+  background-color: rgba(6, 133, 252, 0.178);
+  padding:20rpx;
+  padding-bottom: 100rpx;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+.van{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.button{
+  width: 120%;
+  flex-direction: row;/* 设置一个大盒子内容垂直排列*/
+  align-items: center;/* 设置一个大盒子内容居中排列*/
+  bottom: 10rpx;
+  top:60rpx;
+}
+.b1{
+  position: absolute;
+  left: 10%;
+}
+.b2{
+  position: absolute;
+  right: 10%;
+}
+
+
+
+
