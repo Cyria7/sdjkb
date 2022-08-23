@@ -4,4 +4,4 @@
 执行：npm install
 
 ## 2 数据库连接用法
-在小程序og/目录下保存着后端以及sqlite数据库，sqlite也可以用navicat打开，进入到og目录下打开终端，执行：python manage.py runserver即可运行后端程序
+在小程序backend/目录下保存着后端以及mysql数据库，mysql也可以用navicat打开，进入到og目录下打开终端，执行：python manage.py runserver即可运行后端程序

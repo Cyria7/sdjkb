@@ -1,47 +1,48 @@
 
 <view>
   <view class="area">
-<view class="his">
-  <view class="his-title">
-    <icon class="iconfont icon-a-iconhesuanjiancedian"></icon>最新发布的核酸通知</view>
-  <view class="inhis-list">
-    <view class="repo-name">核酸日期：<text class="day">{{item.hesuan_date}}</text> </view>
-    <view>核酸时间：{{item.hesuan_time}}</view>
-    <view>详细内容：{{item.info}}</view>
+    <view class="his">
+      <view class="his-title">
+        <icon class="iconfont icon-a-iconhesuanjiancedian"></icon>最新发布的核酸通知</view>
+      <view class="inhis-list">
+      <view class="repo-name">核酸日期：<text class="day">{{hsdate}}</text> </view>
+      <view>核酸时间：{{hstime}}</view>
+      <view>详细内容：{{hsinfo}}</view>
     </view>
-</view>
+  </view>
   </view>
 </view>
 
+
 <view class="bg">
-<view class="his-title2">
-    核酸排队进度
-</view>
+  <view class="his-title2">
+      核酸排队进度
+  </view>
 
-<view class="inhis-list2">
-  <van-row justify="space-between" class="van">
-    <van-col span="8">未完成
-   <icon class="iconfont icon-weiwancheng"></icon></van-col>
-   <van-col span="8" >排队中
-    <icon class="iconfont icon-24gf-ellipsis"></icon></van-col>
-    <van-col span="8" >已完成
-    <icon class="iconfont icon-yiwancheng"></icon>
-    </van-col>
-   </van-row>
-</view>
-
-<view class="inhis-list2">
-  <van-row justify="space-between" class="van">
-    <van-col span="8" wx:for="{{array}}" >
-    <view class="van">
-    {{item.bid}}号楼
-    <icon wx:if="{{item.iscomplished}}" class="iconfont icon-yiwancheng"></icon>
-    <icon wx:elif="{{item.isqueue}}" class="iconfont icon-24gf-ellipsis"></icon>
-    <icon wx:else class="iconfont icon-weiwancheng"></icon>
-    </view>
+  <view class="inhis-list2">
+    <van-row justify="space-between" class="van">
+      <van-col span="8">未完成
+    <icon class="iconfont icon-weiwancheng"></icon></van-col>
+    <van-col span="8" >排队中
+      <icon class="iconfont icon-24gf-ellipsis"></icon></van-col>
+      <van-col span="8" >已完成
+      <icon class="iconfont icon-yiwancheng"></icon>
       </van-col>
-  </van-row>
-</view>
+    </van-row>
+  </view>
+
+  <view class="inhis-list2">
+    <van-row justify="space-between" class="van">
+      <van-col span="8" wx:for="{{array}}" >
+      <view class="van">
+      {{item.bid}}号楼
+      <icon wx:if="{{item.iscomplished}}" class="iconfont icon-yiwancheng"></icon>
+      <icon wx:elif="{{item.isqueue}}" class="iconfont icon-24gf-ellipsis"></icon>
+      <icon wx:else class="iconfont icon-weiwancheng"></icon>
+      </view>
+        </van-col>
+    </van-row>
+  </view>
 
   <view class="button">
     <van-button wx:if="{{dormMan}}"  color="#116ec0" class="b1" type="primary"  bind:click="queue">本楼开始排队</van-button>

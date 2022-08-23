@@ -11,7 +11,7 @@ Page({
     tid:'',
     curday:'',
     qday:'',
-    teachername:'钱凯文',
+    teachername:'',
     hesuan:[
       {
         id:'0',
@@ -52,15 +52,14 @@ Page({
       teachername:app.globalData.usrname
     })
     wx.request({
-      url: 'http://127.0.0.1:8000/TeUnRe/',
+      url: 'http://127.0.0.1:8000/HisNotice/',
       data:{
-        tid:this.data.tid,
-        time:this.data.qday
+        tid:this.data.tid,      // 直接获取所有核酸信息
       },
       method:'POST',
       success:function(res){
         that.setData({
-          unreport:res.data
+          hesuan:res.data   // 返回的是所有核酸信息
         })
       }
       
@@ -129,9 +128,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
+    this.getNowTime()
     var that=this
     wx.request({
-      url: 'http://127.0.0.1:8000/TeUnRe/',
+      url: 'http://127.0.0.1:8000/HisNotice/',
       data:{
         tid:this.data.tid,
         time:this.data.qday
@@ -139,7 +139,7 @@ Page({
       method:'POST',
       success:function(res){
         that.setData({
-          unreport:res.data
+          hesuan:res.data
         })
       }
       

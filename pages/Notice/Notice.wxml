@@ -4,7 +4,7 @@
     <van-cell-group>
       <van-field size="large" model:value="{{hsdate}}" label="核酸日期"  placeholder="请输入核酸日期" />
       <van-field size="large" model:value="{{hstime}}" label="核酸时间"  placeholder="请输入核酸时间" />
-      <van-field size="large" model:value="{{hsinfo}}" label="详细信息"  placeholder="请输入核酸详细信息" password="true" />
+      <van-field size="large" model:value="{{hsinfo}}" label="详细信息"  placeholder="请输入核酸详细信息" type="textarea" autosize/>
      
     </van-cell-group>
   </view>
