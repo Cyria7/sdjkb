@@ -5,7 +5,8 @@
   · 请上传抗原图片
   </view>
   <view class="upload-pic">
-    <image model:src="{{file_path}}" bindtap="chooseImg"></image>
+    <image src="{{file_path}}" bindtap="uploadtest"></image>
+    <!-- <view bindtap="chooseImg"></view> -->
     <!-- <view class="icon-wrap">
       <van-icon name="photograph" size="100rpx" bind:click="chooseImg"/>
     </view> -->

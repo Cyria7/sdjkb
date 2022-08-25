@@ -1,4 +1,3 @@
-from msilib.schema import ControlCondition
 from django.shortcuts import render
 
 # Create your views here.

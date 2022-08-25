@@ -20,6 +20,55 @@ Page({
     });
   },
 
+  uploadtest:function(){
+    wx.chooseImage({
+      success(res){
+        const tempFilePaths=res.tempFilePaths
+        wx.uploadFile({
+          filePath: tempFilePaths[0],
+          name: 'file',
+          url: 'https://graph.baidu.com/upload',
+          success:function(res){
+            console.log("in upload")
+            console.log(res)
+            if(res.statusCode==200){
+              wx.showToast({
+                title:"上传成功",
+                icon:"none",
+                duration:1500
+              })
+            }
+          }
+        })
+      }
+    })
+
+    
+
+
+    // var that=this
+    // console.log(that.data.file_path)
+    // wx.uploadFile({
+    //   filePath: that.data.filePath,
+    //   name: 'file',
+    //   url: 'https://graph.baidu.com/upload',
+    //   header: { 
+    //     "content-type": "multipart/form-data"
+    //   },
+    //   success:function(res){
+    //     console.log("in upload")
+    //     console.log(res)
+    //     if(res.statusCode==200){
+    //       wx.showToast({
+    //         title:"上传成功",
+    //         icon:"none",
+    //         duration:1500
+    //       })
+    //     }
+    //   }
+    // })
+  },
+
   handleSub:function(){
     console.log('hihihi');
     let that=this;
@@ -38,8 +87,7 @@ Page({
       url: 'http://127.0.0.1:8000/Upload/',
       filePath: that.data.file_path[0],
       name: 'photo',
-      
-
+    
       formData:{
         sid:app.globalData.uid,
         date:this.data.qday,
@@ -130,18 +178,35 @@ Page({
 
   chooseImg:function() {
     var that=this
-    wx.chooseImage({
+    wx.chooseMedia({
       count:1,
-      sourceType:['image'],
+      mediaType:['image'],
+      sourceType:['album','camera'],
       // camera: 'back',
+      
       success(res){
-        const tempFilePath=res.tempFilePaths
-        console.log(tempFilePath)
+        console.log(res)
+        console.log(res.tempFiles[0].tempFilePath)
         that.setData({
-          file_path:tempFilePath
+          file_path:res.tempFiles[0].tempFilePath
         })
+        
       }
     })
+    console.log("out media")
+    console.log(that.file_path)
+    // wx.chooseImage({
+    //   count:1,
+    //   sourceType:['image'],
+    //   // camera: 'back',
+    //   success(res){
+    //     const tempFilePath=res.tempFilePaths
+    //     console.log(tempFilePath)
+    //     that.setData({
+    //       file_path:tempFilePath
+    //     })
+    //   }
+    // })
   },
 
   /**
